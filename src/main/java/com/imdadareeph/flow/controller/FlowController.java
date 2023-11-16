@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,9 +17,9 @@ import java.util.UUID;
 public class FlowController {
 
 	@GetMapping("/")
-	public List<Id> getAll() {
+	public List<Ids> getAll() {
 		Arrays.asList("IA", "RB");
-		ArrayList<Id> idList = new ArrayList<>();
+		ArrayList<Ids> idList = new ArrayList<>();
 		ArrayList<Service> serviceList = new ArrayList<>();
 		ArrayList<Event> eventList = new ArrayList<>();
 		ArrayList<Api> apiList = new ArrayList<>();
@@ -54,11 +53,12 @@ public class FlowController {
 				.events(eventList)
 			.build());
 
-		idList.add(Id.builder().environment("dev")
-				.processingTime("1500ms")
+		idList.add(Ids.builder().environment("dev")
+				.flowStartTime("2023-11-15 06:06:05.372")
+				.flowProcessingTime("1500ms")
 				.value(UUID.randomUUID().toString())
 				.service(serviceList)
-
+			.flowEndTime("2023-11-15 06:09:05.372")
 			.build());
 		return idList;
 	}
