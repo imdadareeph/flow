@@ -10,5 +10,5 @@ import java.util.ArrayList;
 @Builder
 @ToString
 public class EventFlow {
-    public ArrayList<Id> id;
+    public ArrayList<Ids> idList;
 }

@@ -1,0 +1,1180 @@
+{
+	"info": {
+		"_postman_id": "0e28a429-0d96-40b1-a9dc-cc889f21945d",
+		"name": "Flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1 SAVE OR_SERVICE",
+			"item": [
+				{
+					"name": "OR_OPAC",
+					"item": [
+						{
+							"name": "1 CONSUMER START",
+							"item": [
+								{
+									"name": "1 OR_OPAC CONUMER  STARTED",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"var url = pm.request.url;",
+													"pm.globals.set(\"oid\", jsonData.oid);",
+													"pm.globals.set(\"oid\", jsonData.oid);",
+													"pm.globals.set(\"cid\", jsonData.cid);",
+													"pm.globals.set(\"tid\", jsonData.tid);",
+													"pm.globals.set(\"sname\", jsonData.sname);",
+													"pm.globals.set(\"etype\", jsonData.etype);",
+													"",
+													"var oid=pm.globals.get(\"oid\");",
+													"var cid=pm.globals.get(\"cid\");",
+													"var tid=pm.globals.get(\"tid\");",
+													"var sname=pm.globals.get(\"sname\");",
+													"var etype=pm.globals.get(\"etype\");",
+													"",
+													"console.log(\"oid = \"+oid);",
+													"console.log(\"cid = \"+cid);",
+													"console.log(\"tid = \"+tid);",
+													"console.log(\"sname = \"+sname);",
+													"console.log(\"etype = \"+etype);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{$guid}}\",\n    \"cid\": \"{{$guid}}\",\n    \"tid\": \"{{$guid}}\",\n    \"sname\": \"OR_SERVICE\",\n    \"etype\": \"OR_OPAC\",\n    \"estatus\": \"STARTED\",\n    \"apps\": \"API_CONUMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"E_CONSUME_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"1\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "2 API",
+							"item": [
+								{
+									"name": "1 OR_OPAC API_AUTH  REQ",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// var jsonData = JSON.parse(responseBody);",
+													"// var url = pm.request.url;",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"cid\", jsonData.cid);",
+													"// pm.globals.set(\"tid\", jsonData.tid);",
+													"// pm.globals.set(\"sname\", jsonData.sname);",
+													"// pm.globals.set(\"etype\", jsonData.etype);",
+													"",
+													"// var oid=pm.globals.get(\"oid\");",
+													"// var cid=pm.globals.get(\"cid\");",
+													"// var tid=pm.globals.get(\"tid\");",
+													"// var sname=pm.globals.get(\"sname\");",
+													"// var etype=pm.globals.get(\"etype\");",
+													"",
+													"// console.log(\"oid = \"+oid);",
+													"// console.log(\"cid = \"+cid);",
+													"// console.log(\"tid = \"+tid);",
+													"// console.log(\"sname = \"+sname);",
+													"// console.log(\"etype = \"+etype);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"OR_SERVICE\",\n    \"etype\": \"OR_OPAC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_AUTH\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"INT_REQ\",\n    \"hmethod\": \"GET\",\n    \"output\": \"API_AUTH REQ\",\n    \"seq\": \"1\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "1 OR_OPAC API_AUTH  RES",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// var jsonData = JSON.parse(responseBody);",
+													"// var url = pm.request.url;",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"cid\", jsonData.cid);",
+													"// pm.globals.set(\"tid\", jsonData.tid);",
+													"// pm.globals.set(\"sname\", jsonData.sname);",
+													"// pm.globals.set(\"etype\", jsonData.etype);",
+													"",
+													"// var oid=pm.globals.get(\"oid\");",
+													"// var cid=pm.globals.get(\"cid\");",
+													"// var tid=pm.globals.get(\"tid\");",
+													"// var sname=pm.globals.get(\"sname\");",
+													"// var etype=pm.globals.get(\"etype\");",
+													"",
+													"// console.log(\"oid = \"+oid);",
+													"// console.log(\"cid = \"+cid);",
+													"// console.log(\"tid = \"+tid);",
+													"// console.log(\"sname = \"+sname);",
+													"// console.log(\"etype = \"+etype);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"OR_SERVICE\",\n    \"etype\": \"OR_OPAC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_AUTH\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"INT_RES\",\n    \"hmethod\": \"NA\",\n    \"output\": \"API_AUTH RES\",\n    \"seq\": \"1\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "3 CONSUMER COMPLETED",
+							"item": [
+								{
+									"name": "1 OR_OPAC CONUMER  COMPLETED",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// var jsonData = JSON.parse(responseBody);",
+													"// var url = pm.request.url;",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"cid\", jsonData.cid);",
+													"// pm.globals.set(\"tid\", jsonData.tid);",
+													"// pm.globals.set(\"sname\", jsonData.sname);",
+													"// pm.globals.set(\"etype\", jsonData.etype);",
+													"",
+													"// var oid=pm.globals.get(\"oid\");",
+													"// var cid=pm.globals.get(\"cid\");",
+													"// var tid=pm.globals.get(\"tid\");",
+													"// var sname=pm.globals.get(\"sname\");",
+													"// var etype=pm.globals.get(\"etype\");",
+													"",
+													"// console.log(\"oid = \"+oid);",
+													"// console.log(\"cid = \"+cid);",
+													"// console.log(\"tid = \"+tid);",
+													"// console.log(\"sname = \"+sname);",
+													"// console.log(\"etype = \"+etype);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n     \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"OR_SERVICE\",\n    \"etype\": \"OR_OPAC\",\n    \"estatus\": \"COMPLETED\",\n    \"apps\": \"API_CONUMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"E_CONSUME_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"1\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "4 CONSUMER TIME",
+							"item": [
+								{
+									"name": "1 OR_OPAC  TIMER",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"OR_SERVICE\",\n    \"etype\": \"OR_OPAC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_TIMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"E_E_TIME_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"1\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "2 SAVE OF_SERVICE",
+			"item": [
+				{
+					"name": "OF_PPC",
+					"item": [
+						{
+							"name": "1 CONSUMER START",
+							"item": [
+								{
+									"name": "1 OF_PPC CONUMER  STARTED",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// var jsonData = JSON.parse(responseBody);",
+													"// var url = pm.request.url;",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"cid\", jsonData.cid);",
+													"// pm.globals.set(\"tid\", jsonData.tid);",
+													"// pm.globals.set(\"sname\", jsonData.sname);",
+													"// pm.globals.set(\"etype\", jsonData.etype);",
+													"",
+													"// var oid=pm.globals.get(\"oid\");",
+													"// var cid=pm.globals.get(\"cid\");",
+													"// var tid=pm.globals.get(\"tid\");",
+													"// var sname=pm.globals.get(\"sname\");",
+													"// var etype=pm.globals.get(\"etype\");",
+													"",
+													"// console.log(\"oid = \"+oid);",
+													"// console.log(\"cid = \"+cid);",
+													"// console.log(\"tid = \"+tid);",
+													"// console.log(\"sname = \"+sname);",
+													"// console.log(\"etype = \"+etype);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"OF_SERVICE\",\n    \"etype\": \"OF_PPC\",\n    \"estatus\": \"STARTED\",\n    \"apps\": \"API_CONUMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"E_CONSUME_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"12\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "2 API",
+							"item": [
+								{
+									"name": "1 OF_PPC API_AUTH  REQ",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// var jsonData = JSON.parse(responseBody);",
+													"// var url = pm.request.url;",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"cid\", jsonData.cid);",
+													"// pm.globals.set(\"tid\", jsonData.tid);",
+													"// pm.globals.set(\"sname\", jsonData.sname);",
+													"// pm.globals.set(\"etype\", jsonData.etype);",
+													"",
+													"// var oid=pm.globals.get(\"oid\");",
+													"// var cid=pm.globals.get(\"cid\");",
+													"// var tid=pm.globals.get(\"tid\");",
+													"// var sname=pm.globals.get(\"sname\");",
+													"// var etype=pm.globals.get(\"etype\");",
+													"",
+													"// console.log(\"oid = \"+oid);",
+													"// console.log(\"cid = \"+cid);",
+													"// console.log(\"tid = \"+tid);",
+													"// console.log(\"sname = \"+sname);",
+													"// console.log(\"etype = \"+etype);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"OF_SERVICE\",\n    \"etype\": \"OF_PPC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_AUTH\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"INT_REQ\",\n    \"hmethod\": \"GET\",\n    \"output\": \"API_AUTH REQ\",\n    \"seq\": \"2\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "1 OF_PPC API_AUTH  RES",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"var url = pm.request.url;",
+													"pm.globals.set(\"oid\", jsonData.oid);",
+													"pm.globals.set(\"oid\", jsonData.oid);",
+													"pm.globals.set(\"cid\", jsonData.cid);",
+													"pm.globals.set(\"tid\", jsonData.tid);",
+													"pm.globals.set(\"sname\", jsonData.sname);",
+													"pm.globals.set(\"etype\", jsonData.etype);",
+													"",
+													"var oid=pm.globals.get(\"oid\");",
+													"var cid=pm.globals.get(\"cid\");",
+													"var tid=pm.globals.get(\"tid\");",
+													"var sname=pm.globals.get(\"sname\");",
+													"var etype=pm.globals.get(\"etype\");",
+													"",
+													"console.log(\"oid = \"+oid);",
+													"console.log(\"cid = \"+cid);",
+													"console.log(\"tid = \"+tid);",
+													"console.log(\"sname = \"+sname);",
+													"console.log(\"etype = \"+etype);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"OF_SERVICE\",\n    \"etype\": \"OF_PPC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_AUTH\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"INT_RES\",\n    \"hmethod\": \"NA\",\n    \"output\": \"API_AUTH RES\",\n    \"seq\": \"12\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "3 CONSUMER COMPLETED",
+							"item": [
+								{
+									"name": "1 OR_OPAC CONUMER  COMPLETED",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"OF_SERVICE\",\n    \"etype\": \"OF_PPC\",\n    \"estatus\": \"COMPLETED\",\n    \"apps\": \"API_CONUMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"E_CONSUME_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"2\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "4 CONSUMER TIME",
+							"item": [
+								{
+									"name": "1 OR_OPAC  TIMER",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"OF_SERVICE\",\n    \"etype\": \"OF_PPC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_TIMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"E_E_TIME_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"2\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "3 SAVE ON_SERVICE",
+			"item": [
+				{
+					"name": "ON_OFC",
+					"item": [
+						{
+							"name": "1 CONSUMER START",
+							"item": [
+								{
+									"name": "1 ON_OFC CONUMER  STARTED",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// var jsonData = JSON.parse(responseBody);",
+													"// var url = pm.request.url;",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"cid\", jsonData.cid);",
+													"// pm.globals.set(\"tid\", jsonData.tid);",
+													"// pm.globals.set(\"sname\", jsonData.sname);",
+													"// pm.globals.set(\"etype\", jsonData.etype);",
+													"",
+													"// var oid=pm.globals.get(\"oid\");",
+													"// var cid=pm.globals.get(\"cid\");",
+													"// var tid=pm.globals.get(\"tid\");",
+													"// var sname=pm.globals.get(\"sname\");",
+													"// var etype=pm.globals.get(\"etype\");",
+													"",
+													"// console.log(\"oid = \"+oid);",
+													"// console.log(\"cid = \"+cid);",
+													"// console.log(\"tid = \"+tid);",
+													"// console.log(\"sname = \"+sname);",
+													"// console.log(\"etype = \"+etype);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"ON_SERVICE\",\n    \"etype\": \"ON_OFC\",\n    \"estatus\": \"STARTED\",\n    \"apps\": \"API_CONUMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"E_CONSUME_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"3\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "2 API",
+							"item": [
+								{
+									"name": "1 ON_OFC API_AUTH  REQ",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// var jsonData = JSON.parse(responseBody);",
+													"// var url = pm.request.url;",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"cid\", jsonData.cid);",
+													"// pm.globals.set(\"tid\", jsonData.tid);",
+													"// pm.globals.set(\"sname\", jsonData.sname);",
+													"// pm.globals.set(\"etype\", jsonData.etype);",
+													"",
+													"// var oid=pm.globals.get(\"oid\");",
+													"// var cid=pm.globals.get(\"cid\");",
+													"// var tid=pm.globals.get(\"tid\");",
+													"// var sname=pm.globals.get(\"sname\");",
+													"// var etype=pm.globals.get(\"etype\");",
+													"",
+													"// console.log(\"oid = \"+oid);",
+													"// console.log(\"cid = \"+cid);",
+													"// console.log(\"tid = \"+tid);",
+													"// console.log(\"sname = \"+sname);",
+													"// console.log(\"etype = \"+etype);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"ON_SERVICE\",\n    \"etype\": \"ON_OFC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_AUTH\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"INT_REQ\",\n    \"hmethod\": \"GET\",\n    \"output\": \"API_AUTH REQ\",\n    \"seq\": \"3\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "1 ON_OFC API_AUTH  RES",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"var url = pm.request.url;",
+													"pm.globals.set(\"oid\", jsonData.oid);",
+													"pm.globals.set(\"oid\", jsonData.oid);",
+													"pm.globals.set(\"cid\", jsonData.cid);",
+													"pm.globals.set(\"tid\", jsonData.tid);",
+													"pm.globals.set(\"sname\", jsonData.sname);",
+													"pm.globals.set(\"etype\", jsonData.etype);",
+													"",
+													"var oid=pm.globals.get(\"oid\");",
+													"var cid=pm.globals.get(\"cid\");",
+													"var tid=pm.globals.get(\"tid\");",
+													"var sname=pm.globals.get(\"sname\");",
+													"var etype=pm.globals.get(\"etype\");",
+													"",
+													"console.log(\"oid = \"+oid);",
+													"console.log(\"cid = \"+cid);",
+													"console.log(\"tid = \"+tid);",
+													"console.log(\"sname = \"+sname);",
+													"console.log(\"etype = \"+etype);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"ON_SERVICE\",\n    \"etype\": \"ON_OFC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_AUTH\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"INT_RES\",\n    \"hmethod\": \"NA\",\n    \"output\": \"API_AUTH RES\",\n    \"seq\": \"3\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "3 CONSUMER COMPLETED",
+							"item": [
+								{
+									"name": "1 ON_OFC CONUMER  COMPLETED",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"ON_SERVICE\",\n    \"etype\": \"ON_OFC\",\n    \"estatus\": \"COMPLETED\",\n    \"apps\": \"API_CONUMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"E_CONSUME_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"3\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "4 CONSUMER TIME",
+							"item": [
+								{
+									"name": "1 ON_OFC  TIMER",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"ON_SERVICE\",\n    \"etype\": \"ON_OFC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_TIMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"E_E_TIME_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"3\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "4 SAVE FR_SERVICE",
+			"item": [
+				{
+					"name": "OR_OPAC",
+					"item": [
+						{
+							"name": "1 CONSUMER START",
+							"item": [
+								{
+									"name": "1 ON_OFC CONUMER  STARTED",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// var jsonData = JSON.parse(responseBody);",
+													"// var url = pm.request.url;",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"cid\", jsonData.cid);",
+													"// pm.globals.set(\"tid\", jsonData.tid);",
+													"// pm.globals.set(\"sname\", jsonData.sname);",
+													"// pm.globals.set(\"etype\", jsonData.etype);",
+													"",
+													"// var oid=pm.globals.get(\"oid\");",
+													"// var cid=pm.globals.get(\"cid\");",
+													"// var tid=pm.globals.get(\"tid\");",
+													"// var sname=pm.globals.get(\"sname\");",
+													"// var etype=pm.globals.get(\"etype\");",
+													"",
+													"// console.log(\"oid = \"+oid);",
+													"// console.log(\"cid = \"+cid);",
+													"// console.log(\"tid = \"+tid);",
+													"// console.log(\"sname = \"+sname);",
+													"// console.log(\"etype = \"+etype);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"FR_SERVICE\",\n    \"etype\": \"ON_OFC\",\n    \"estatus\": \"STARTED\",\n    \"apps\": \"API_CONUMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"E_CONSUME_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"3\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "2 API",
+							"item": [
+								{
+									"name": "1 ON_OFC API_AUTH  REQ",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// var jsonData = JSON.parse(responseBody);",
+													"// var url = pm.request.url;",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"oid\", jsonData.oid);",
+													"// pm.globals.set(\"cid\", jsonData.cid);",
+													"// pm.globals.set(\"tid\", jsonData.tid);",
+													"// pm.globals.set(\"sname\", jsonData.sname);",
+													"// pm.globals.set(\"etype\", jsonData.etype);",
+													"",
+													"// var oid=pm.globals.get(\"oid\");",
+													"// var cid=pm.globals.get(\"cid\");",
+													"// var tid=pm.globals.get(\"tid\");",
+													"// var sname=pm.globals.get(\"sname\");",
+													"// var etype=pm.globals.get(\"etype\");",
+													"",
+													"// console.log(\"oid = \"+oid);",
+													"// console.log(\"cid = \"+cid);",
+													"// console.log(\"tid = \"+tid);",
+													"// console.log(\"sname = \"+sname);",
+													"// console.log(\"etype = \"+etype);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"FR_SERVICE\",\n    \"etype\": \"ON_OFC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_AUTH\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"INT_REQ\",\n    \"hmethod\": \"GET\",\n    \"output\": \"API_AUTH REQ\",\n    \"seq\": \"3\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "1 ON_OFC API_AUTH  RES",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"var url = pm.request.url;",
+													"pm.globals.set(\"oid\", jsonData.oid);",
+													"pm.globals.set(\"oid\", jsonData.oid);",
+													"pm.globals.set(\"cid\", jsonData.cid);",
+													"pm.globals.set(\"tid\", jsonData.tid);",
+													"pm.globals.set(\"sname\", jsonData.sname);",
+													"pm.globals.set(\"etype\", jsonData.etype);",
+													"",
+													"var oid=pm.globals.get(\"oid\");",
+													"var cid=pm.globals.get(\"cid\");",
+													"var tid=pm.globals.get(\"tid\");",
+													"var sname=pm.globals.get(\"sname\");",
+													"var etype=pm.globals.get(\"etype\");",
+													"",
+													"console.log(\"oid = \"+oid);",
+													"console.log(\"cid = \"+cid);",
+													"console.log(\"tid = \"+tid);",
+													"console.log(\"sname = \"+sname);",
+													"console.log(\"etype = \"+etype);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"FR_SERVICE\",\n    \"etype\": \"ON_OFC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_AUTH\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"INT_RES\",\n    \"hmethod\": \"NA\",\n    \"output\": \"API_AUTH RES\",\n    \"seq\": \"3\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "3 CONSUMER COMPLETED",
+							"item": [
+								{
+									"name": "1 ON_OFC CONUMER  COMPLETED",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"FR_SERVICE\",\n    \"etype\": \"ON_OFC\",\n    \"estatus\": \"COMPLETED\",\n    \"apps\": \"API_CONUMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"E_CONSUME_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"3\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "4 CONSUMER TIME",
+							"item": [
+								{
+									"name": "1 ON_OFC  TIMER",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"FR_SERVICE\",\n    \"etype\": \"ON_OFC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_TIMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"E_E_TIME_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"3\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/save",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "5 SAVE UN_SERVICE",
+			"item": [
+				{
+					"name": "1 OR_SERVICE OR_OPAC API_CONUMER  E_REQ_L",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"OR_SERVICE\",\n    \"etype\": \"OR_OPAC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_CONUMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"INFO\",\n    \"ltype\": \"E_REQ_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"save"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "6 SAVE ERROR",
+			"item": [
+				{
+					"name": "1 ON_SERVICE ON_OFC API_ERROR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"ON_SERVICE\",\n    \"etype\": \"ON_OFC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_FR\",\n    \"ptime\": \"\",\n    \"llevel\": \"ERROR\",\n    \"ltype\": \"EXT_RES\",\n    \"hmethod\": \"NA\",\n    \"output\": \"some api res err\",\n    \"seq\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1 ON_SERVICE ON_OFC CONSUMER_ERROR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oid\": \"{{oid}}\",\n    \"cid\": \"{{cid}}\",\n    \"tid\": \"{{tid}}\",\n    \"sname\": \"ON_SERVICE\",\n    \"etype\": \"ON_OFC\",\n    \"estatus\": \"PENDING\",\n    \"apps\": \"API_CONUMER\",\n    \"ptime\": \"\",\n    \"llevel\": \"ERROR\",\n    \"ltype\": \"E_EXCEPTION_T_L\",\n    \"hmethod\": \"NA\",\n    \"output\": \"some sonsumer err\",\n    \"seq\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"save"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Flow-allFlows",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"oId\": \"{{guid}}\",\n    \"cId\": \"{{guid}}\",\n    \"tId\": \"{{guid}}\",\n    \"sName\": \"OR_SERVICE\",\n    \"eType\": \"OR_OPAC\",\n    \"eStatus\": \"STARTED\",\n    \"apps\": \"CONUMER\",\n    \"pTime\": \"\",\n    \"lLevel\": \"INFO\",\n    \"lType\": \"E_CONSUME_L\",\n    \"hMethod\": \"NA\",\n    \"output\": \"test\",\n    \"seq\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/allFlows",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"allFlows"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

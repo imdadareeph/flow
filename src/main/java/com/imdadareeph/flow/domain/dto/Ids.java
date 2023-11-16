@@ -5,15 +5,16 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.ArrayList;
-import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @ToString
-public class Id{
+public class Ids {
     public String value;
     public String environment;
-    public String timestamp;
-    public String processingTime;
+    public String flowStartTime;
+    public String flowEndTime;
+    public String flowProcessingTime;
     public ArrayList<Service> service;
 }
